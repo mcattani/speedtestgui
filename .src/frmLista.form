@@ -1,0 +1,11 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,84,62)
+  Text = ("// Servidores //")
+  Icon = Picture["icon:/22/select-all"]
+  { txLista TextArea
+    MoveScaled(0,0,84,62)
+    ReadOnly = True
+  }
+}

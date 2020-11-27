@@ -1,0 +1,10 @@
+* Thu Nov 26 2020 Ozymandias <marianocattani@gmail.com> 1.0.10
+-Arreglados pequeños bugs.
+
+* Tue May 12 2020 https://thenerdyapprentice.blogspot.com/ <marianocattani@gmail.com> 1.0.9
+- Arreglado link al blog en la sección "Acerca de.."
+- Quitada la posibilidad de redimensionar la ventana en "Acerca de.." para no deformar los controles
+
+* Sun May 10 2020 https://thenerdyapprentice.blogspot.com/ <marianocattani@gmail.com> 1.0.8
+- Lanzamiento inicial
+

@@ -1,0 +1,111 @@
+' Gambas class file
+
+Public Sub btLista_Click()
+
+  frmLista.Show
+
+End
+
+Public Sub Form_Open()
+
+  ' Primero chequeamos que el programa speedtest-cli esté instalado
+  If Exist("/usr/bin/speedtest-cli") Then
+    btEjecutar.Enabled = True
+    btLista.Enabled = True
+  Else
+    Message.Warning("Es necesario que el programa speedtest esté instalado")
+    txSalida.Text = "Speedtest no encontrado"
+  Endif
+
+  ' También chequeamos la existencia de namp necesaria para la funcion PING
+  If Exist("/usr/bin/nmap") Then
+    btPing.Enabled = True
+  Else
+    Message.Warning("Para utilizar esta función debe tener el programa Nmap instalado")
+    txSalida.Text = ""
+    txSalida.Text = "Nmap no instalado"
+  Endif
+
+End
+
+Public Sub Form_KeyPress()
+
+  If Key.Code = Key.Esc Then
+    Quit
+  Endif
+
+End
+
+Public Sub btEjecutar_Click()
+
+  Dim Bytes As Boolean, Simple As Boolean, Secure As Boolean ' Booleanos para pasar a la funcion que ejecuta el comando
+  Dim ID As Integer
+
+  txSalida.Text = ""
+
+  ' Chequeamos si el usuario ha seleccionado un modo particular y preparamos las variables para pasar a la función
+  If cbBytes.Value = True Then Bytes = True Else Bytes = False
+  If cbSimple.Value = True Then Simple = True Else Simple = False
+  If cbSecure.Value = True Then Secure = True Else Secure = False
+  ID = vbID.Value
+
+  ' Llamamos a la función
+  Speed(Bytes, Simple, Secure, ID)
+
+End
+
+Private Function Speed(Bytes As Boolean, Simple As Boolean, Secure As Boolean, ID As Integer)
+  ' Función que ejectura el comando speedtest-cli con las variables elegidas por el usuario
+
+  Dim cmBytes As String = " --bytes"
+  Dim cmSimple As String = " --simple"
+  Dim cmSecure As String = " --secure"
+  Dim COMM As String = "speedtest-cli"
+  Dim hPROC As Process
+
+  If ID <> 0 Then comm = comm & " --server " & ID
+  If bytes = True Then comm = comm & cmBytes
+  If simple = True Then comm = comm & cmSimple
+  If Secure = True Then comm = comm & cmSecure
+  Spinner1.Visible = False
+
+  Print COMM
+  Try hPROC = Shell (COMM) For Read As "Comando"
+
+  While hPROC.State = hPROC.Running
+    Wait 0.01
+    Spinner1.Visible = True
+
+  Wend
+
+  If Error Then
+    Message.Info(Error.Text & Error.Code)
+  Endif
+
+Finally
+
+  Spinner1.Visible = False
+
+End
+
+Public Sub Comando_read()
+
+  Dim sLine As String
+
+  sline = Read #Last, Lof(Last)
+  txSalida.Text &= sLine
+  txSalida.EnsureVisible()
+
+End
+
+Public Sub btPing_Click()
+
+  frmListaP.Show
+
+End
+
+Public Sub btAcerca_Click()
+
+  frmAcerca.Show
+
+End

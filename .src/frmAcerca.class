@@ -1,0 +1,21 @@
+' Gambas class file
+
+Public Sub Form_KeyPress()
+
+  If Key.Code = Key.Esc Then
+    Me.Close
+
+  Endif
+
+End
+
+Public Sub URL_Click()
+
+  Try Desktop.Open("http://thenerdyapprentice.blogspot.com")
+
+  If Error Then
+    Message.Info(Error.Text & Error.Code)
+  Endif
+
+End
+

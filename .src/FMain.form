@@ -1,0 +1,74 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,62,48)
+  ToolTip = ("Puede cerrar la aplicacióm presionando la tecla ESCAPE")
+  Text = ("// Speedtest GUI //")
+  Icon = Picture["icon:/22/component"]
+  Resizable = False
+  { cbBytes CheckBox
+    MoveScaled(1,44,9,3)
+    ToolTip = ("Devuelve los valores en bytes en vez de bits")
+    Text = ("Bytes")
+  }
+  { cbSimple CheckBox
+    MoveScaled(10,44,9,3)
+    ToolTip = ("Muestar únicamente información básica")
+    Text = ("Simple")
+  }
+  { cbSecure CheckBox
+    MoveScaled(20,44,9,3)
+    ToolTip = ("Utiliza HTTPS en vez de HTTP para conectarse al servidor")
+    Text = ("Secure")
+  }
+  { !txSalida TextArea
+    MoveScaled(1,1,60,37)
+    #Public = True
+    Background = Color.Black
+    Foreground = Color.Green
+    ToolTip = ("Puede salir de la aplicación presionando la tecla ESC")
+    Text = ("Presione \"Ejecutar\" para iniciar la medición de velocidad\nde su conexión a internet.\nSi desea elegir un servidor específico haga click sobre \"Lista\"\npara ver las opciones disponibles.\nLo mas conveniente es dejar que la app busque el servidor más \napropiado.\nPuede cerrar esta aplicación y sus ventanas presionando la tecla\n\"ESC\" (escape).\nLa función \"Ping\" realiza envía un pings a una lista de ip's preparada;\nla misma debe contar con el siguiente formato:\nxx.xx.xx.xx\nyy.yy.yy.yy")
+    ReadOnly = True
+  }
+  { btEjecutar Button
+    MoveScaled(1,39,12,4)
+    Enabled = False
+    ToolTip = ("Comienza la medicion de velocidad")
+    Text = ("Ejecutar")
+    Picture = Picture["icon:/22/disconnect"]
+  }
+  { btLista Button
+    MoveScaled(50,39,11,4)
+    Enabled = False
+    ToolTip = ("Despliesga la lista de servidores a elegir, opción no recomendada")
+    Text = ("Lista")
+    Picture = Picture["icon:/22/select-all"]
+  }
+  { vbID ValueBox
+    MoveScaled(46,44,15,3)
+    ToolTip = ("ID del servidor a usar (puede buscar los servidores haciendo click en el botón \"Lista\"), 0 para la deteccion automática")
+  }
+  { TextLabel1 TextLabel
+    MoveScaled(43,44,3,3)
+    ToolTip = ("ID del servidor a usar, 0 para la deteccion automática")
+    Text = ("ID")
+    Alignment = Align.Center
+  }
+  { Spinner1 Spinner
+    MoveScaled(29,39,9,8)
+    Visible = False
+  }
+  { btPing Button
+    MoveScaled(39,39,9,4)
+    Enabled = False
+    ToolTip = ("Realiza un Ping a una lista dada de IP's")
+    Text = ("Ping")
+    Picture = Picture["icon:/22/watch"]
+  }
+  { btAcerca Button
+    MoveScaled(15,39,13,4)
+    ToolTip = ("Acerca del progrma")
+    Text = ("Acerca de..")
+    Picture = Picture["icon:/22/group"]
+  }
+}

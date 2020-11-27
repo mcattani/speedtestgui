@@ -1,0 +1,26 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,97,72)
+  Visible = False
+  Text = ("// Ping //")
+  Icon = Picture["icon:/16/watch"]
+  Resizable = False
+  { txSalida2 TextArea
+    MoveScaled(0,42,97,30)
+    Background = Color.Black
+    Foreground = Color.Green
+    ToolTip = ("Muestra la salida del ping hecho a los servidores")
+    ReadOnly = True
+  }
+  { fcLista FileChooser
+    MoveScaled(0,0,97,42)
+    ToolTip = ("Seleccionar archivos con la lista de IP's")
+    Drop = True
+    Border = False
+  }
+  { Spinner1 Spinner
+    MoveScaled(39,28,19,14)
+    Visible = False
+  }
+}

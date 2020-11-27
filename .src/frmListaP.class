@@ -1,0 +1,58 @@
+' Gambas class file
+
+Public Lista As String
+
+Public Sub Form_Open()
+
+End
+
+Public Sub fcLista_KeyPress()
+
+  If Key.code = Key.Esc Then frmListaP.Close
+
+End
+
+Public Sub Form_KeyPress()
+
+  If Key.code = Key.Esc Then frmListaP.Close
+
+End
+
+Public Sub fcLista_Activate()
+
+  Dim hPROC As Process
+  Dim COMM As String = "nmap -sP -iL " ' declaramos la variable que va a ser el comando
+
+  Lista = Chr(34) & fcLista.SelectedPath & Chr(34)
+
+  COMM = COMM & Lista
+  txSalida2.Text = ""
+
+  Try hproc = Shell (COMM) For Read As "Lectura"
+  txSalida2.Text = "Espere..."
+
+  While hPROC.State = hPROC.Running
+    Wait 0.01
+
+    Spinner1.Visible = True
+  Wend
+
+  If Error Then
+    Message.Info(Error.Text & Error.Code)
+  Endif
+
+Finally
+
+  Spinner1.Visible = False
+
+End
+
+Public Sub Lectura_read()
+
+  Dim sLine As String
+
+  sline = Read #Last, Lof(Last)
+  txSalida2.Text &= sLine
+  txSalida2.EnsureVisible()
+
+End

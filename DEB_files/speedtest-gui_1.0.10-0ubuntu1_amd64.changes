@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Thu, 26 Nov 2020 12:00:00 +0000
+Source: speedtest-gui
+Binary: speedtest-gui
+Architecture: source all
+Version: 1.0.10-0ubuntu1
+Distribution: unstable
+Urgency: low
+Maintainer: Ozymandias <marianocattani@gmail.com>
+Changed-By: Ozymandias <marianocattani@gmail.com>
+Description:
+ speedtest-gui - Una simple interfaz gráfica para el programa "Speedtest-cli".
+Changes:
+ speedtest-gui (1.0.10-0ubuntu1) unstable; urgency=low
+ .
+   * rreglados pequeños bugs.
+Checksums-Sha1:
+ 6a9d5364acffd7764ae1409b87600349b9112560 1066 speedtest-gui_1.0.10-0ubuntu1.dsc
+ f35a93cf6295576fe13ce1d43f7397bad9982d30 1556 speedtest-gui_1.0.10-0ubuntu1.diff.gz
+ 5f9378f6b27cad0b20f7b008c1f8dcd6b4115928 34652 speedtest-gui_1.0.10-0ubuntu1_all.deb
+ 928d12b8ac81b22d14ed1350abf3617e4d57616c 6362 speedtest-gui_1.0.10-0ubuntu1_amd64.buildinfo
+Checksums-Sha256:
+ 2c37b26a4a7e0c165bfd8c70725d15083b4db8b3d3fae14cfbedcbc8f580ff82 1066 speedtest-gui_1.0.10-0ubuntu1.dsc
+ 62705252cf7dd7bec5ed552f3c83d32f80e5357d2835cc52cef9013549b9ee3b 1556 speedtest-gui_1.0.10-0ubuntu1.diff.gz
+ 45b726bc3dab459c7ea0ca1e99adbbd6a6c5fb3336ce803b77eff96bc17f094a 34652 speedtest-gui_1.0.10-0ubuntu1_all.deb
+ 00f2032c4a1a317ceb4271ee3ef11c21d799de3435711dbb11b73a43e6db9ac9 6362 speedtest-gui_1.0.10-0ubuntu1_amd64.buildinfo
+Files:
+ 92312660ce52405a27a1d4474d195f1b 1066 contrib/admin optional speedtest-gui_1.0.10-0ubuntu1.dsc
+ 384533f17e666189cd8939bffa37f33c 1556 contrib/admin optional speedtest-gui_1.0.10-0ubuntu1.diff.gz
+ f143ac7b2b8847926e03196959c9aef2 34652 contrib/admin optional speedtest-gui_1.0.10-0ubuntu1_all.deb
+ 3d75e0e76b9e81f94bf5fd186744ec5a 6362 contrib/admin optional speedtest-gui_1.0.10-0ubuntu1_amd64.buildinfo

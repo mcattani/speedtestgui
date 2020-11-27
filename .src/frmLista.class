@@ -1,0 +1,45 @@
+' Gambas class file
+
+Public Sub Form_Open()
+  ' Apenas se abre el formulario ejecutamos el comando para obtener la lista de servidores disponibles
+
+  Dim COMM As String
+  Dim hPROC As Process
+
+  txLista.Height = Me.Height - 5
+  txLista.Width = Me.Width - 5
+
+  COMM = "speedtest-cli --list"
+
+  Try hproc = Shell (COMM) For Read As "Proceso" 'Ejecutamos el comando e informamos si se produce un error
+
+  If Error Then
+    Message.Info(Error.Text & Error.Code)
+  Endif
+
+Finally
+
+End
+
+Public Sub Proceso_read() 'Mostramos la salida a medida que se va llegando la información
+
+  Dim sLine As String
+
+  sline = Read #Last, Lof(Last)
+  txLista.Text &= sLine
+  txLista.EnsureVisible()
+
+End
+
+Public Sub Form_Resize()
+
+  txLista.Height = Me.Height - 5
+  txLista.Width = Me.Width - 5
+
+End
+
+Public Sub Form_KeyPress()
+
+  Me.Close
+
+End
